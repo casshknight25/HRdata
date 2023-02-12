@@ -34,6 +34,9 @@ if analysis =='Leavers Deep Dive':
     leavers = alt.Chart(df).mark_bar().encode(alt.X("Left"),y="count()")
     st.altair_chart(leavers, use_container_width=True)
     st.write("We can see we have an imbalanced data set as 84% of employees have stayed with the company")
+    st.header("Leavers by Gender") 
+    gender = alt.Chart(leftdf).mark_bar().encode(alt.X("Gender"),y="count()", color="Left")
+    st.altair_chart(gender, use_container_width=True)
     st.header("Leavers by Department")
     lbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="Left")
     st.altair_chart(lbc, use_container_width=True)
@@ -41,10 +44,11 @@ if analysis =='Leavers Deep Dive':
     st.header("Leavers by Age across Department")
     fig1 = px.box(leftdf,x='Department', y="Age")
     st.plotly_chart(fig1, use_container_width=True)
-    st.write("We can see the majority of leavers between 28-39 across all departments. It is worth noting the outliers at in the age bracket 55-59, it is plausible these employees retired especially as several of these individuals had been working for 30-40 years and hence they will not be the focus of improving employee retention as retirement is less likely driven by company practises")
+    st.write("We can see the majority of leavers are aged between 28-39 across all departments. It is worth noting the outliers at in the age bracket 55-59, it is plausible these employees retired especially as several of these individuals had been working for 30-40 years and hence they will not be the focus of improving employee retention as retirement is less likely driven by company practises")
     st.header("Leavers by time since latest promotion across Department")
     fig2 = px.box(leftdf,x = 'Department', y="YearsSinceLastPromotion")
     st.plotly_chart(fig2, use_container_width=True)
+    st.write("We can see the majority of leavers across all departments have been promoted very recently, with 75% of leavers having been promoted within the last 3 years")
     
 
                  
