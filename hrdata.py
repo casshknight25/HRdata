@@ -63,7 +63,7 @@ if analysis =='Leavers Deep Dive':
     st.header("Leavers by Performance Rating split by Department")
     fig3 = px.box(leftdf,x = 'PerformanceRating', y="Department")
     st.plotly_chart(fig3, use_container_width=True)
-    st.write("37% of leavers from R&D were 'high performers' (with performance rating = 4 or 5), whereas only 23% of HR high performers left. 36% of all leavers were high performers"
+    st.write("37% of leavers from R&D were 'high performers' (with performance rating = 4 or 5), whereas only 23% of HR high performers left. 36% of all leavers were high performers")
     st.header("Leavers by Job Satisfaction split by Department")
     fig4 = px.box(leftdf,x = 'JobSatisfaction', y="Department")
     st.plotly_chart(fig4, use_container_width=True)
