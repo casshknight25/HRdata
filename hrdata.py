@@ -17,7 +17,7 @@ st.title("HR Data Analysis")
 
 
 df = pd.read_csv('HR_data.csv')
-leftdf = pd.read_csv('HRLeavers.csv')
+leftdf = pd.read_csv('HRleavers.csv')
 
 
 analysis = st.sidebar.selectbox("Select to view the deep dive into leavers data or EDA for predicting leavers", ("Leavers Deep Dive", "Predicting Leavers EDA"))
