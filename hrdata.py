@@ -59,9 +59,11 @@ if analysis =='Leavers Deep Dive':
     leftdf['complaintfiled'] = leftdf['complaintfiled'].replace([0,1],["No","Yes"])
     lcbc = alt.Chart(leftdf).mark_bar().encode(alt.X("Department"),y="count()", color="complaintfiled")
     st.altair_chart(lcbc, use_container_width=True)
-    st.write("Only 17% of leavers had complained, with 20% of leavers from R&D and 21% of sales having complained") 
+    st.write("Only 17% of leavers had complained, with 20% of leavers from R&D and 21% of sales having complained")
+    st.header("Leavers by Performance Rating split by Department")
     fig3 = px.box(leftdf,x = 'PerformanceRating', y="Department")
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig3, use_container_width=True)
+    st.header("Leavers by Job Satisfaction split by Department")
     fig4 = px.box(leftdf,x = 'JobSatisfaction', y="Department")
     st.plotly_chart(fig4, use_container_width=True)
                  
