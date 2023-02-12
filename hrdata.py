@@ -32,10 +32,11 @@ if analysis =='Predicting Leavers EDA':
 
 if analysis =='Leavers Deep Dive':
     leavers = alt.Chart(df).mark_bar().encode(alt.X("Left"),y="count()")
+    st.altair_chart(leavers, use_container_width=True)
     st.header("Leavers by Department")
     lbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="Left")
     st.altair_chart(lbc, use_container_width=True)
-
+    
     fig1 = px.box(leftdf,x='Department', y="Age")
     st.plotly_chart(fig1, use_container_width=True)
     fig2 = px.box(leftdf,x = 'Department', y="YearsSinceLastPromotion")
