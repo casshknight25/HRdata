@@ -36,6 +36,7 @@ if analysis =='Leavers Deep Dive':
     st.write("We can see we have an imbalanced data set as 84% of employees have stayed with the company")
     st.header("Leavers by Gender") 
     gender = alt.Chart(df).mark_bar().encode(alt.X("Gender"),y="count()", color="Left")
+    st.write("We can see the workforce is male dominant, with 60% of the workforce being male. 63% of leavers were male")
     st.altair_chart(gender, use_container_width=True)
     st.header("Leavers by Department")
     lbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="Left")
@@ -49,6 +50,11 @@ if analysis =='Leavers Deep Dive':
     fig2 = px.box(leftdf,x = 'Department', y="YearsSinceLastPromotion")
     st.plotly_chart(fig2, use_container_width=True)
     st.write("We can see the majority of leavers across all departments have been promoted very recently, with 75% of leavers having been promoted within the last 3 years")
-    
+    st.header("Complaints filed by department") 
+    cbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="complaintfiled")
+    st.altair_chart(cbc, use_container_width=True)
+    st.header("Leavers who filed complaints by Department")
+    lcbc = alt.Chart(leftdf).mark_bar().encode(alt.X("Department"),y="count()", color="complaintfiled")
+    st.altair_chart(lcbc, use_container_width=True)
 
                  
