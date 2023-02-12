@@ -31,7 +31,7 @@ if analysis =='Predicting Leavers EDA':
     st.components.v1.html(html_data,height=17000)
 
 if analysis =='Leavers Deep Dive':
-    st.bar_chart(df[‘Left’])
+    st.bar_chart(df["Left"])
     st.header("Leavers by Department")
     lbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="Left")
     st.altair_chart(lbc, use_container_width=True)
