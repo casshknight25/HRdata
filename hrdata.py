@@ -54,8 +54,14 @@ if analysis =='Leavers Deep Dive':
     df['complaintfiled'] = df['complaintfiled'].replace([0,1],["No","Yes"])
     cbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="complaintfiled")
     st.altair_chart(cbc, use_container_width=True)
+    st.write("We can see approxiately 20% of all employees have complained, however 67% of complaints were made by employees in the R&D Department")
     st.header("Leavers who filed complaints by Department")
+     df['complaintfiled'] = df['complaintfiled'].replace([0,1],["No","Yes"])
     lcbc = alt.Chart(leftdf).mark_bar().encode(alt.X("Department"),y="count()", color="complaintfiled")
     st.altair_chart(lcbc, use_container_width=True)
-
+    st.write("Only 17% of leavers had complained, with 20% of leavers from R&D and 21% of sales having complained") 
+    prbc = alt.Chart(leftdf).mark_bar().encode(alt.X("PerformanceRating"),y="count()")
+    st.altair_chart(prbc, use_container_width=True)
+    jsbc = alt.Chart(leftdf).mark_bar().encode(alt.X("JobSatisfaction"),y="count()")
+    st.altair_chart(prbc, use_container_width=True)
                  
