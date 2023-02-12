@@ -33,14 +33,16 @@ if analysis =='Predicting Leavers EDA':
 if analysis =='Leavers Deep Dive':
     leavers = alt.Chart(df).mark_bar().encode(alt.X("Left"),y="count()")
     st.altair_chart(leavers, use_container_width=True)
+    st.write("We can see we have an imbalanced data set as 84% of employees have stayed with the company")
     st.header("Leavers by Department")
     lbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="Left")
     st.altair_chart(lbc, use_container_width=True)
-    
+    st.write("We can see that the majority of employees work in R&D, with 66% of employees in this department. HR accounts for 4% of employees and 30% work in sales. 14% of R&D employees left, 21% of Sales employees have left and 20% of HR have left. 56% of leavers were from R&D, 39% were from sales and 5% were from HR") 
     fig1 = px.box(leftdf,x='Department', y="Age")
     st.plotly_chart(fig1, use_container_width=True)
+    st.write("We can see the majority of leavers between 28-39 across all departments. It is worth noting the outliers at in the age bracket 55-59, it is plausible these employees retired especially as several of these individuals had been working for 30-40 years and hence they will not be the focus of improving employee retention as retirement is less likely driven by company practises")
     fig2 = px.box(leftdf,x = 'Department', y="YearsSinceLastPromotion")
-    st.plotly_chart(fig1, use_container_width=True)
-
+    st.plotly_chart(fig2, use_container_width=True)
+    
 
                  
