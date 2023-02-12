@@ -35,7 +35,7 @@ if analysis =='Leavers Deep Dive':
     st.altair_chart(leavers, use_container_width=True)
     st.write("We can see we have an imbalanced data set as 84% of employees have stayed with the company")
     st.header("Leavers by Gender") 
-    gender = alt.Chart(leftdf).mark_bar().encode(alt.X("Left"),y="count()", color="Gender")
+    gender = alt.Chart(df).mark_bar().encode(alt.X("Gender"),y="count()", color="Left")
     st.altair_chart(gender, use_container_width=True)
     st.header("Leavers by Department")
     lbc = alt.Chart(df).mark_bar().encode(alt.X("Department"),y="count()", color="Left")
